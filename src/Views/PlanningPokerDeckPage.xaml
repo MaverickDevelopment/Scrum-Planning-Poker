@@ -1,0 +1,99 @@
+<Page x:Class="PlanningPoker.Views.PlanningPokerDeckPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:Behaviors="using:Template10.Behaviors"
+      xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+      xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+      xmlns:controls="using:Template10.Controls"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="using:PlanningPoker.Views"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:vm="using:PlanningPoker.ViewModels" mc:Ignorable="d">
+    
+    <Page.DataContext>
+        <vm:DeckPageViewModel />
+    </Page.DataContext>
+
+    <Page.Resources>
+        <Style x:Key="RoundButtonTemplate" TargetType="Button">
+            <Setter Property="Background" Value="SteelBlue"/>
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="40" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <!--<Setter Property="Margin" Value="12" />
+            <Setter Property="Height" Value="150" />
+            <Setter Property="Width" Value="100" />-->
+            <Setter Property="Margin" Value="8, 8, 0, 0" />
+            <Setter Property="Height" Value="120" />
+            <Setter Property="Width" Value="80" />            
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="8" 
+                                Background="{TemplateBinding Background}" 
+                                BorderThickness="2"
+                                BorderBrush="White">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="VisualStateNarrow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource NarrowMinWidth}" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="VisualStateNormal">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource NormalMinWidth}" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        
+        <controls:PageHeader BackButtonVisibility="Collapsed" Content="Planning Poker" Frame="{x:Bind Frame, Mode=OneWay}">
+            <Interactivity:Interaction.Behaviors>
+                <Behaviors:EllipsisBehavior Visibility="Collapsed" />
+            </Interactivity:Interaction.Behaviors>
+        </controls:PageHeader>
+
+        <!--  #region content  -->
+
+        <ScrollViewer Grid.Row="1" Margin="0" HorizontalContentAlignment="Left" VerticalScrollBarVisibility="Auto">
+            <VariableSizedWrapGrid Grid.Row="1" VerticalAlignment="Top" Orientation="Horizontal" >
+                <Button Style="{StaticResource RoundButtonTemplate}" Content="0" Click="Button_Click" />
+                <Button Style="{StaticResource RoundButtonTemplate}" Content="1/2" Click="Button_Click" />
+                <Button Style="{StaticResource RoundButtonTemplate}" Content="1" Click="Button_Click" />
+                <Button Style="{StaticResource RoundButtonTemplate}" Content="2" Click="Button_Click" />
+                <Button Style="{StaticResource RoundButtonTemplate}" Content="3" Click="Button_Click" />
+                <Button Style="{StaticResource RoundButtonTemplate}" Content="5" Click="Button_Click" />
+                <Button Style="{StaticResource RoundButtonTemplate}" Content="8" Click="Button_Click" />
+                <Button Style="{StaticResource RoundButtonTemplate}" Content="13" Click="Button_Click" />
+                <Button Style="{StaticResource RoundButtonTemplate}" Content="20" Click="Button_Click" />
+                <Button Style="{StaticResource RoundButtonTemplate}" Content="40" Click="Button_Click" />
+                <Button Style="{StaticResource RoundButtonTemplate}" Content="100" Click="Button_Click" />
+                <Button Style="{StaticResource RoundButtonTemplate}" Content="Inf" Click="Button_Click" />
+                <Button Style="{StaticResource RoundButtonTemplate}" Content="?" Click="Button_Click" />
+                <Button Style="{StaticResource RoundButtonTemplate}" Content="Java" Click="Button_Click" />
+            </VariableSizedWrapGrid >
+        </ScrollViewer>
+
+        <!--  #endregion  -->
+
+    </Grid>
+</Page>
+
