@@ -159,6 +159,15 @@ namespace PlanningPoker.ViewModels
         }
 
         /// <summary>
+        /// Contributes to project.
+        /// </summary>
+        public async void ContributeToProject()
+        {
+            Uri link = new Uri("https://github.com/MaverickDevelopment/Scrum-Planning-Poker");
+            await Windows.System.Launcher.LaunchUriAsync(link);
+        }
+
+        /// <summary>
         /// Composes the email.
         /// </summary>
         /// <param name="subject">The subject.</param>

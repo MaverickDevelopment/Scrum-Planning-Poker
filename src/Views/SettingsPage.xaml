@@ -122,9 +122,10 @@
                                 <Run>Version</Run>
                                 <Run Text="{Binding Version}" />
                             </TextBlock>
-                            <Button Width="180" Margin="0,0,0,6" Content="Review this App" Click="{x:Bind ViewModel.AboutPartViewModel.ReviewThisApp}" />
-                            <Button Width="180" Margin="0,0,0,6" Content="Support &amp; Feedback" Click="{x:Bind ViewModel.AboutPartViewModel.SupportAndFeedback}" />
-                            <Button Width="180" Content="Share this App" Click="{x:Bind ViewModel.AboutPartViewModel.ShareThisApp}" />
+                            <Button Width="200" Margin="0,0,0,6" Content="Review this App" Click="{x:Bind ViewModel.AboutPartViewModel.ReviewThisApp}" />
+                            <Button Width="200" Margin="0,0,0,6" Content="Support &amp; Feedback" Click="{x:Bind ViewModel.AboutPartViewModel.SupportAndFeedback}" />
+                            <Button Width="200" Margin="0,0,0,6" Content="Share this App" Click="{x:Bind ViewModel.AboutPartViewModel.ShareThisApp}" />
+                            <Button Width="200" Content="Contribute to the Project" Click="{x:Bind ViewModel.AboutPartViewModel.ContributeToProject}" />
                         </StackPanel>
                     </Grid>
                 </ScrollViewer>
