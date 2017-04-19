@@ -106,6 +106,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\PlanningDeckConverter.cs" />
     <Compile Include="Enums\PlanningDeck.cs" />
     <Compile Include="Models\CardModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 using PlanningPoker.Enums;
 using Template10.Mvvm;
 using Windows.UI.Xaml;
@@ -26,9 +27,6 @@ namespace PlanningPoker.ViewModels
             if (!Windows.ApplicationModel.DesignMode.DesignModeEnabled)
             {
                 _settings = Services.SettingsServices.SettingsService.Instance;
-                _decks = new List<PlanningDeck>();
-                _decks.Add(PlanningDeck.Fibonacci);
-                _decks.Add(PlanningDeck.PlanningPoker);
             }
         }
 
@@ -96,15 +94,14 @@ namespace PlanningPoker.ViewModels
             }
         }
 
-        private List<PlanningDeck> _decks;
-        public List<PlanningDeck> Decks
-        {
-            get { return _decks; }
-            set
-            {
+        /// <summary>
+        /// Gets the available planning decks.
+        /// </summary>
+        /// <value>
+        /// The decks.
+        /// </value>
+        public List<PlanningDeck> Decks { get; } = Enum.GetValues(typeof(PlanningDeck)).Cast<PlanningDeck>().ToList<PlanningDeck>();
 
-            }
-        }
     }
 
     public class AboutPartViewModel : ViewModelBase

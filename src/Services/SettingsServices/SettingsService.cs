@@ -45,7 +45,6 @@ namespace PlanningPoker.Services.SettingsServices
             set
             {
                 _helper.Write(nameof(DefaultPlanningDeck), value.ToString());
-                //BootStrapper.Current. = value.ToElementTheme();
             }
         }
 

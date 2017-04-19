@@ -7,12 +7,17 @@
       xmlns:controls="using:Template10.Controls"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="using:PlanningPoker.Views"
+      xmlns:c="using:PlanningPoker.Converters" 
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:vm="using:PlanningPoker.ViewModels" mc:Ignorable="d">
 
     <Page.DataContext>
         <vm:SettingsPageViewModel x:Name="ViewModel" />
     </Page.DataContext>
+
+    <Page.Resources>
+        <c:PlanningDeckConverter x:Name="PlanningDeckConverter" />
+    </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -65,18 +70,27 @@
                                       Header="Use shell-drawn back button"
                                       IsOn="{Binding UseShellBackButton, Mode=TwoWay}"
                                       OffContent="Back button in page header"
-                                      OnContent="Back button in titlebar or taskbar" />
+                                      OnContent="Back button in titlebar or taskbar" 
+                                      Margin="0,0,0,10" />
                         <ToggleSwitch x:Name="UseLightThemeToggleSwitch" 
                                       Header="Use Light Theme"
                                       IsOn="{Binding UseLightThemeButton, Mode=TwoWay}"
                                       OffContent="Dark theme" 
                                       OnContent="Light theme"
-                                      RelativePanel.Below="UseShellDrawnBackButtonToggleSwtich" />
-                        <ComboBox
-                            x:Name="DefaultDeck"
-                            Header="Default Planning Deck"
-                            ItemsSource="{Binding Decks}"
-                            RelativePanel.Below="UseLightThemeToggleSwitch" />
+                                      RelativePanel.Below="UseShellDrawnBackButtonToggleSwtich" 
+                                      Margin="0,0,0,10" />
+                        <ComboBox x:Name="DefaultDeck"
+                                  Header="Default Planning Deck"
+                                  ItemsSource="{Binding Decks}"
+                                  SelectedItem="{Binding DefaultPlanningDeck, Mode=TwoWay}"
+                                  RelativePanel.Below="UseLightThemeToggleSwitch" 
+                                  Margin="0,0,0,10">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Converter={StaticResource PlanningDeckConverter}}" />
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
 
                         <!-- not implemented at this time -->
                         <ToggleSwitch x:Name="AutoHideSelectedCardToggleSwitch" 
@@ -85,7 +99,8 @@
                                       OffContent="Off" 
                                       OnContent="On"
                                       Visibility="Collapsed"
-                                      RelativePanel.Below="DefaultDeck" />
+                                      RelativePanel.Below="DefaultDeck" 
+                                      Margin="0,0,0,10" />
                     </RelativePanel>
                 </ScrollViewer>
             </PivotItem>

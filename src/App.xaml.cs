@@ -51,9 +51,6 @@ namespace PlanningPoker
         /// <returns></returns>
         public override Task OnStartAsync(StartKind startKind, IActivatedEventArgs args)
         {
-            //TODO: pass in the configured default deck
-            //NavigationService.Navigate(typeof(Views.FibonacciDeckPage));
-
             var defaultDeck = SettingsService.Instance.DefaultPlanningDeck;
             switch (defaultDeck)
             {
