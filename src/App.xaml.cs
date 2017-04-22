@@ -3,6 +3,7 @@ using Windows.UI.Xaml;
 using System.Threading.Tasks;
 using PlanningPoker.Services.SettingsServices;
 using Windows.ApplicationModel.Activation;
+using Microsoft.HockeyApp;
 
 namespace PlanningPoker
 {
@@ -14,6 +15,9 @@ namespace PlanningPoker
         public App()
         {
             InitializeComponent();
+
+            HockeyClient.Current.Configure("c211393d64c744c7b9b80a4bde97db70");
+
             SplashFactory = (e) => new Views.Splash(e);
 
             #region App settings
