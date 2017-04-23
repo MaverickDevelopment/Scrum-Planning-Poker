@@ -1,9 +1,9 @@
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Template10.Mvvm;
 using Template10.Services.NavigationService;
-using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 using PlanningPoker.Models;
 
@@ -11,33 +11,17 @@ namespace PlanningPoker.ViewModels
 {
     public class DeckPageViewModel : ViewModelBase
     {
-        //private string activeDeckName = string.Empty;
-        //public string ActiveDeckName
-        //{
-        //    get { return activeDeckName; }
-        //    set { Set(ref activeDeckName, value); }
-        //}
+        public ObservableCollection<CardModel> CardModels { get; }
 
-        //private string _Value = string.Empty;
-        //public string Value
-        //{
-        //    get { return _Value; }
-        //    set { Set(ref _Value, value); }
-        //}
-
-        private CardModel _Card;
-        public CardModel Card
-        {
-            get { return _Card; }
-            set { Set(ref _Card, value); }
-        }
+        public CardModel Card { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DeckPageViewModel"/> class.
         /// </summary>
         public DeckPageViewModel()
         {
-            _Card = new CardModel() { DeckName = "", Value = "", Points = "0" };
+            CardModels = new ObservableCollection<CardModel>();
+            Card = new CardModel { DeckName = "", Value = "", Points = "0" };
 
             if (Windows.ApplicationModel.DesignMode.DesignModeEnabled)
             {
@@ -68,6 +52,9 @@ namespace PlanningPoker.ViewModels
                 // clear any cache
                 state.Clear();
             }
+
+            LoadCardModels(parameter as string);
+
             return Task.CompletedTask;
         }
 
@@ -105,6 +92,95 @@ namespace PlanningPoker.ViewModels
         public void GotoCardPage()
         {
             this.NavigationService.Navigate(typeof(Views.CardPage), this.Card);
+        }
+
+        private void LoadCardModels(string deckName)
+        {
+            CardModels.Clear();
+
+            switch (deckName)
+            {
+                case "Fibonacci":
+                    LoadFibonacciCards(deckName);
+                    break;
+                case "Planning Poker":
+                    LoadPlanningPokerCards(deckName);
+                    break;
+                case "Playing Cards":
+                    LoadPlayingCards(deckName);
+                    break;
+                case "T-Shirt Sizes":
+                    LoadTshirtSizeCards(deckName);
+                    break;
+                case "T-Shirt Sizes Extended":
+                    LoadTshirtSizeExtendedCards(deckName);
+                    break;
+            }
+        }
+
+        private void LoadFibonacciCards(string deckName)
+        {
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "0" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "1" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "2" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "3" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "5" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "8" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "13" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "21" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "34" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "55" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "89" });
+        }
+
+        private void LoadPlanningPokerCards(string deckName)
+        {
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "0" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "1/2" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "1" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "2" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "3" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "5" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "8" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "13" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "20" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "40" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "100" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "Inf" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "?" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "Java" });
+        }
+
+        private void LoadPlayingCards(string deckName)
+        {
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "A" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "2" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "3" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "5" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "8" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "K" });
+        }
+
+        private void LoadTshirtSizeCards(string deckName)
+        {
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "XS" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "S" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "M" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "L" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "XL" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "XXL" });
+        }
+
+        private void LoadTshirtSizeExtendedCards(string deckName)
+        {
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "XS" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "S" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "M" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "M+" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "L" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "L+" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "XL" });
+            CardModels.Add(new CardModel { DeckName = deckName, Value = "XL+" });
         }
     }
 }
