@@ -55,19 +55,19 @@ namespace PlanningPoker
             switch (defaultDeck)
             {
                 case Enums.PlanningDeck.Fibonacci:
-                    NavigationService.Navigate(typeof(Views.FibonacciDeckPage));
+                    NavigationService.Navigate(typeof(Views.FibonacciDeckPage), "Fibonacci");
                     break;
                 case Enums.PlanningDeck.PlanningPoker:
-                    NavigationService.Navigate(typeof(Views.PlanningPokerDeckPage));
+                    NavigationService.Navigate(typeof(Views.PlanningPokerDeckPage), "Planning Poker");
                     break;
                 case Enums.PlanningDeck.PlayingCards:
-                    NavigationService.Navigate(typeof(Views.PlayingCardsDeckPage));
+                    NavigationService.Navigate(typeof(Views.PlayingCardsDeckPage), "Playing Cards");
                     break;
                 case Enums.PlanningDeck.TShirtSizes:
-                    NavigationService.Navigate(typeof(Views.TShirtSizesDeckPage));
+                    NavigationService.Navigate(typeof(Views.TShirtSizesDeckPage), "T-Shirt Sizes");
                     break;
                 case Enums.PlanningDeck.TShirtSizesExtended:
-                    NavigationService.Navigate(typeof(Views.TShirtSizesExtendedDeckPage));
+                    NavigationService.Navigate(typeof(Views.TShirtSizesExtendedDeckPage), "T-Shirt Sizes Extended");
                     break;
             }
             
