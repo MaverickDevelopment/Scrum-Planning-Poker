@@ -22,7 +22,7 @@
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
-    <PackageCertificateThumbprint>8C72036AEF047384BB8B35DCE0DE1305E8A8ACAE</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>BCA160CE2F2609F4641242FE6878A501E84E546C</PackageCertificateThumbprint>
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
@@ -100,6 +100,7 @@
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <None Include="PlanningPoker_StoreKey.pfx" />
+    <None Include="PlanningPoker_TemporaryKey.pfx" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -155,6 +156,7 @@
     <Content Include="Assets\MediumGray.png" />
     <Content Include="Assets\SplashScreen2.scale-200.png" />
     <Content Include="Help.htm" />
+    <None Include="Package.StoreAssociation.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
