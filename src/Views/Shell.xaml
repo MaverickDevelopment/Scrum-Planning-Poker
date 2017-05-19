@@ -1,69 +1,135 @@
 <Page x:Class="PlanningPoker.Views.Shell"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:Controls="using:Template10.Controls"
-      xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
-      xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+      xmlns:controls="using:Template10.Controls"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:local="using:PlanningPoker.Views"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:views="using:PlanningPoker.Views" 
+      xmlns:views="using:PlanningPoker.Views"
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
       mc:Ignorable="d">
 
-    <Controls:ModalDialog x:Name="ModalContainer" CanBackButtonDismiss="False" DisableBackButtonWhenModal="True">
-        <Controls:ModalDialog.Content>
-            <Controls:HamburgerMenu x:Name="MyHamburgerMenu" IsFullScreen="False" NavAreaBackground="#2b2b2b">
-                <Controls:HamburgerMenu.PrimaryButtons>
-                    <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:FibonacciDeckPage">
+    <controls:ModalDialog x:Name="ModalContainer"
+                          CanBackButtonDismiss="False"
+                          DisableBackButtonWhenModal="True">
+        <controls:ModalDialog.Content>
+            <controls:HamburgerMenu x:Name="MyHamburgerMenu"
+                                    IsFullScreen="False"
+                                    NavAreaBackground="#2b2b2b">
+                <controls:HamburgerMenu.PrimaryButtons>
+                    <controls:HamburgerButtonInfo ClearHistory="True"
+                                                  PageParameter="Fibonacci"
+                                                  PageType="views:FibonacciDeckPage">
                         <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Width="48" Height="48" Symbol="Placeholder" />
-                            <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Fibonacci" />
+                            <SymbolIcon Width="48"
+                                        Height="48"
+                                        Symbol="Placeholder" />
+                            <TextBlock Margin="12,0,0,0"
+                                       VerticalAlignment="Center"
+                                       Text="Fibonacci" />
                         </StackPanel>
-                    </Controls:HamburgerButtonInfo>
-                    <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:PlanningPokerDeckPage">
+                    </controls:HamburgerButtonInfo>
+                    <controls:HamburgerButtonInfo ClearHistory="True"
+                                                  PageParameter="Planning Poker"
+                                                  PageType="views:PlanningPokerDeckPage">
                         <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Width="48" Height="48" Symbol="Placeholder" />
-                            <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Planning Poker" />
+                            <SymbolIcon Width="48"
+                                        Height="48"
+                                        Symbol="Placeholder" />
+                            <TextBlock Margin="12,0,0,0"
+                                       VerticalAlignment="Center"
+                                       Text="Planning Poker" />
                         </StackPanel>
-                    </Controls:HamburgerButtonInfo>
-                    <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:PlayingCardsDeckPage">
+                    </controls:HamburgerButtonInfo>
+                    <controls:HamburgerButtonInfo ClearHistory="True"
+                                                  PageParameter="Playing Cards"
+                                                  PageType="views:PlayingCardsDeckPage">
                         <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Width="48" Height="48" Symbol="Placeholder" />
-                            <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Playing Cards" />
+                            <SymbolIcon Width="48"
+                                        Height="48"
+                                        Symbol="Placeholder" />
+                            <TextBlock Margin="12,0,0,0"
+                                       VerticalAlignment="Center"
+                                       Text="Playing Cards" />
                         </StackPanel>
-                    </Controls:HamburgerButtonInfo>
-                    <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:TShirtSizesDeckPage">
+                    </controls:HamburgerButtonInfo>
+                    <controls:HamburgerButtonInfo ClearHistory="True"
+                                                  PageParameter="T-Shirt Sizes"
+                                                  PageType="views:TShirtSizesDeckPage">
                         <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Width="48" Height="48" Symbol="Placeholder" />
-                            <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="T-Shirt Sizes" />
+                            <SymbolIcon Width="48"
+                                        Height="48"
+                                        Symbol="Placeholder" />
+                            <TextBlock Margin="12,0,0,0"
+                                       VerticalAlignment="Center"
+                                       Text="T-Shirt Sizes" />
                         </StackPanel>
-                    </Controls:HamburgerButtonInfo>
-                    <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:TShirtSizesExtendedDeckPage">
+                    </controls:HamburgerButtonInfo>
+                    <controls:HamburgerButtonInfo ClearHistory="True"
+                                                  PageParameter="T-Shirt Sizes Extended"
+                                                  PageType="views:TShirtSizesExtendedDeckPage">
                         <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Width="48" Height="48" Symbol="Placeholder" />
-                            <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="T-Shirt Sizes Extended" />
+                            <SymbolIcon Width="48"
+                                        Height="48"
+                                        Symbol="Placeholder" />
+                            <TextBlock Margin="12,0,0,0"
+                                       VerticalAlignment="Center"
+                                       Text="T-Shirt Sizes Extended" />
                         </StackPanel>
-                    </Controls:HamburgerButtonInfo>
-                </Controls:HamburgerMenu.PrimaryButtons>
+                    </controls:HamburgerButtonInfo>
+                </controls:HamburgerMenu.PrimaryButtons>
 
-                <Controls:HamburgerMenu.SecondaryButtons>
-                    <!--  settingspage button  -->
-                    <Controls:HamburgerButtonInfo x:Name="SettingsButton" PageType="views:SettingsPage">
-                        <Controls:HamburgerButtonInfo.NavigationTransitionInfo>
+                <controls:HamburgerMenu.SecondaryButtons>
+                    <!-- settingspage button -->
+                    <controls:HamburgerButtonInfo x:Name="SettingsButton"
+                                                  PageType="views:SettingsPage">
+                        <controls:HamburgerButtonInfo.NavigationTransitionInfo>
                             <SuppressNavigationTransitionInfo />
-                        </Controls:HamburgerButtonInfo.NavigationTransitionInfo>
+                        </controls:HamburgerButtonInfo.NavigationTransitionInfo>
                         <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Width="48" Height="48" Symbol="Setting" />
-                            <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Settings" />
+                            <SymbolIcon Width="48"
+                                        Height="48"
+                                        Symbol="Setting" />
+                            <TextBlock Margin="12,0,0,0"
+                                       VerticalAlignment="Center"
+                                       Text="Settings" />
                         </StackPanel>
-                    </Controls:HamburgerButtonInfo>
-                </Controls:HamburgerMenu.SecondaryButtons>
+                    </controls:HamburgerButtonInfo>
+                </controls:HamburgerMenu.SecondaryButtons>
 
-            </Controls:HamburgerMenu>
-        </Controls:ModalDialog.Content>
+            </controls:HamburgerMenu>
+        </controls:ModalDialog.Content>
 
-    </Controls:ModalDialog>
+    </controls:ModalDialog>
 
 </Page>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
